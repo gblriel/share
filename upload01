@@ -1,0 +1,29 @@
+filter {
+  # 1. 장비 타입 분류 (Enhanced Regex)
+  if [message] =~ /<%?\d+>?(?:\d+: )?(?:[^:]+: )?(?:%[A-Z]+-\d+-[A-Z]+:|\[(?:rpd|mgd)\])/ {
+    if [message] =~ /%[A-Z]+-\d+-[A-Z]+:/ {
+      mutate { 
+        add_tag => ["cisco"]
+        add_field => { 
+          "[@metadata][vendor]" => "cisco",
+          "[@metadata][os_type]" => ([message] =~ /^\<\d+\>\d+:/) ? "ios" : "nxos"
+        }
+      }
+    } else if [message] =~ /\[(rpd|mgd)\]/ {
+      mutate { 
+        add_tag => ["juniper"]
+        add_field => { "[@metadata][vendor]" => "juniper" }
+      }
+    }
+  }
+}
+
+output {
+  if [@metadata][vendor] == "cisco" {
+    pipeline { send_to => ["cisco_pipeline"] }
+  } else if [@metadata][vendor] == "juniper" {
+    pipeline { send_to => ["juniper_pipeline"] }
+  } else {
+    pipeline { send_to => ["unknown_pipeline"] }
+  }
+}
