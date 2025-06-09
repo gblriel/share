@@ -1,0 +1,66 @@
+Rocky Linux에서 Python 3.10.12을 설치하고 기존의 Python 3.6을 안전하게 대체하는 방법을 설명합니다. 이 과정에서는 Python 3.10.12을 직접 소스 코드에서 빌드하여 설치할 것입니다.
+
+### 1. 기존 Python 3.6 확인
+
+```bash
+python3 --version
+```
+
+또는
+
+```bash
+python3.6 --version
+```
+
+### 2. Python 3.10.12 설치 준비
+
+```bash
+sudo dnf groupinstall "Development Tools" -y
+sudo dnf install openssl-devel libffi-devel bzip2-devel zlib-devel readline-devel sqlite-devel wget -y
+```
+
+### 3. Python 3.10.12 다운로드 및 설치
+
+```bash
+cd /usr/src
+sudo wget https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz
+sudo tar xzf Python-3.10.12.tgz
+cd Python-3.10.12
+sudo ./configure --enable-optimizations --prefix=/usr/local/python3.10
+sudo make altinstall
+```
+
+* `--prefix` 옵션은 Python을 시스템의 기본 Python 경로와 충돌하지 않도록 /usr/local에 설치합니다.
+* `make altinstall` 명령은 기존 Python 3.6을 덮어쓰지 않고 Python 3.10을 설치합니다.
+
+### 4. Python 심볼릭 링크 설정 (기본 Python 대체)
+
+```bash
+sudo ln -sf /usr/local/python3.10/bin/python3.10 /usr/bin/python3
+sudo ln -sf /usr/local/python3.10/bin/pip3.10 /usr/bin/pip3
+```
+
+### 5. 기본 Python 버전 확인
+
+```bash
+python3 --version
+pip3 --version
+```
+
+### 6. 기존 Python 3.6 관련 패키지 제거 (선택 사항)
+
+만약 Python 3.6이 더 이상 필요하지 않다면 다음 명령으로 제거할 수 있습니다.
+
+```bash
+sudo dnf remove python3.6 -y
+```
+
+### 7. 기본 Python 링크 재설정 (필요시)
+
+만약 기본 Python이 Python 3.10으로 동작하지 않거나 문제가 발생하면 아래 명령으로 다시 설정할 수 있습니다.
+
+```bash
+sudo alternatives --set python /usr/local/python3.10/bin/python3.10
+```
+
+이로써 Python 3.10.12이 설치되고 기존의 Python 3.6을 안전하게 대체할 수 있습니다.
