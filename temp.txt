@@ -8,3 +8,18 @@
 
 <juniper>
 <190>Jun 5 16:39:34 PHQ_INT_L2_17F01 rpd[8723]: RPD_IFL_NOTIFICATION: IF_TRACE: EVENT [Bandwidth] ge-0/0/10.0 index 564 [Up Broadcast Multicast] address #0 28.b8.29.1.2e.dd
+
+
+[zabbix-server] | ** Preparing Zabbix server
+[zabbix-server] | ** Preparing database
+[zabbix-server] | ** Using POSTGRES_USER variable from ENV
+[zabbix-server] | ** Using POSTGRES_PASSWORD variable from ENV
+[zabbix-server] | ********************
+[zabbix-server] | * DB_SERVER_HOST: zabbix-db
+[zabbix-server] | * DB_SERVER_PORT: 5432
+[zabbix-server] | * DB_SERVER_DBNAME: zabbix
+[zabbix-server] | * DB_SERVER_SCHEMA: public
+[zabbix-server] | ********************
+[zabbix-server] | ** Database 'zabbix' already exists. Please be careful with database owner!
+[zabbix-server] | ** Table 'zabbix.dbversion' already exists.
+[zabbix-server] | zabbix_server [1]: unknown parameter "StartSNMPPollersUnreachable" in config file "/etc/zabbix/zabbix_server.conf", line 20
