@@ -1,0 +1,16 @@
+# Cisco 로그 식별 (더 넓은 범위)
+if [syslog_body] =~ /%([A-Z0-9_]+)-\d+-[A-Z0-9_]+:/ {
+  mutate { add_field => { "[@metadata][target_pipeline]" => "cisco" } }
+
+# Arista
+} else if [syslog_body] =~ /(Arista|FastCli|EAPI|XMPP|ZeroTouch)/ {
+  mutate { add_field => { "[@metadata][target_pipeline]" => "arista" } }
+
+# Juniper
+} else if [syslog_body] =~ /(rpd\[|mgd\[|eventd\[|jsd\[|chassisd\[)/ {
+  mutate { add_field => { "[@metadata][target_pipeline]" => "juniper" } }
+
+# 기타
+} else {
+  mutate { add_field => { "[@metadata][target_pipeline]" => "unknown" } }
+}
