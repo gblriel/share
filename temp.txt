@@ -1,1 +1,10 @@
-test
+<cisco ios>
+<189>138129: PTHD_COM_L3_01: Jun 5 2025 16:32:29.718 KST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: nwcfg] [Source: 172.30.32.200] [localport: 22] at 16:32:29 KST Thu Jun 5 2025
+
+<cisco nx-ox>
+<189>PPKR_MPR_L3_01: 2025 May 31 13:17:47 KST: %ETHPORT-5-SPEED: Interface Ethernet1/9, operational speed changed to 10 Gbps
+
+<189>PPKY_ORD_L3_01: 2025 Jun  5 17:05:12 KST: %VSHD-5-VSHD_SYSLOG_CONFIG_I: Configured from vty by 125003 on 192.168.20.96@pts/2
+
+<juniper>
+<190>Jun 5 16:39:34 PHQ_INT_L2_17F01 rpd[8723]: RPD_IFL_NOTIFICATION: IF_TRACE: EVENT [Bandwidth] ge-0/0/10.0 index 564 [Up Broadcast Multicast] address #0 28.b8.29.1.2e.dd
