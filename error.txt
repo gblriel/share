@@ -1,1 +1,45 @@
-Error: initializing source docker://registry.access.redhat.com/zabbix/zabbix-web-nginx-pgsql:6.0-alpine: reading manifest 6.0-alpine in registry.access.redhat.com/zabbix/zabbix-web-nginx-pgsql: name unknown: Repo not found
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]: [zabbix_alert_webhook_request] : <starlette.requests.Request object at 0x7f9c5a1dd060>
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]: 172.30.32.200:42894 - "POST /api/webhook/zabbix HTTP/1.1" 500
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]: [2025-06-11 12:52:56 +0900] [3840190] [ERROR] Exception in ASGI application
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]: Traceback (most recent call last):
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     result = await app(  # type: ignore[func-returns-value]
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     return await self.app(scope, receive, send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/fastapi/applications.py", line 1054, in __call__
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await super().__call__(scope, receive, send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/applications.py", line 112, in __call__
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await self.middleware_stack(scope, receive, send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 187, in __call__
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     raise exc
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 165, in __call__
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await self.app(scope, receive, _send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     raise exc
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await app(scope, receive, sender)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/routing.py", line 714, in __call__
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await self.middleware_stack(scope, receive, send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/routing.py", line 734, in app
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await route.handle(scope, receive, send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await self.app(scope, receive, send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     raise exc
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     await app(scope, receive, sender)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     response = await f(request)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     raw_response = await run_endpoint_function(
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/venv/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     return await dependant.call(**values)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/network_admin/net_admin/main.py", line 188, in send_zabbix_webhook_to_slack
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     body = json.loads(request.body)
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:   File "/home/sysmon/.pyenv/versions/3.10.12/lib/python3.10/json/__init__.py", line 339, in loads
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]:     raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+ 6월 11 12:52:56 POPNWM01 gunicorn[3840190]: TypeError: the JSON object must be str, bytes or bytearray, not method
