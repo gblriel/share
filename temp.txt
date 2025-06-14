@@ -23,3 +23,11 @@
 [zabbix-server] | ** Database 'zabbix' already exists. Please be careful with database owner!
 [zabbix-server] | ** Table 'zabbix.dbversion' already exists.
 [zabbix-server] | zabbix_server [1]: unknown parameter "StartSNMPPollersUnreachable" in config file "/etc/zabbix/zabbix_server.conf", line 20
+
+
+RP/0/RSP0/CPU0:May 15 14:15:49 : tcp[350]: %IP-TCP_NSR-5-DISABLED : 39.115.146.18:179 <-> 39.115.146.17:63449:: NSR disabled for TCP connection because Retransmission threshold exceeded 
+RP/0/RSP0/CPU0:May 15 14:15:49 : bgp[1060]: %ROUTING-BGP-3-NBR_NSR_DISABLED : NSR disabled on neighbor 39.115.146.17 due to 'ip-tcp' detected the 'warning' condition 'NSR is down because the retransmission threshold exceeded (probably because downstream RP is not healthy)' 
+RP/0/RSP1/CPU0:May 15 14:15:49 : bgp[1060]: %ROUTING-BGP-5-NBR_NSR_DISABLED_STANDBY : NSR disabled on neighbor 39.115.146.17 on standby RP due to Peer closing down the session (VRF: default) 
+RP/0/RSP0/CPU0:May 15 14:16:15 : bgp[1060]: %ROUTING-BGP-5-ADJCHANGE : neighbor 39.115.146.17 Down - BGP Notification sent, hold time expired (VRF: default) (AS: 9318) 
+RP/0/RSP0/CPU0:May 15 14:16:17 : fib_mgr[176]: %OS-MMAP_PEER-7-CONNECT : Connect from process 6468 to 20328 skipped: Connection refused 
+RP/0/RSP0/CPU0:May 15 14:17:28 : bgp[1060]: %ROUTING-BGP-5-ADJCHANGE : neighbor 39.115.146.17 Up (VRF: default) (AS: 9318) 
