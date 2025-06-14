@@ -1,0 +1,14 @@
+services:
+  grafana:
+    image: grafana/grafana:12.0.1
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana.ini:/etc/grafana/grafana.ini
+      - /root/docker_compose/grafana/data/img/:/var/lib/grafana/image-storage
+    environment:
+      - GF_UNIFIED_ALERTING_SCREENSHOTS_CAPTURE=true
+      - GF_UNIFIED_ALERTING_UPLOAD_EXTERNAL_IMAGE_STORAGE=true
+      - GF_EXTERNAL_IMAGE_STORAGE_PROVIDER=local
+      - GF_EXTERNAL_IMAGE_STORAGE_LOCAL_DIRECTORY=/var/lib/grafana/image-storage
